@@ -1,1 +1,1 @@
-Knoldus Intern Program
+Knoldus Intern Program (KIP)
