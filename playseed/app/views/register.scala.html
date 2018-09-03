@@ -1,0 +1,18 @@
+@(regForm: Form[forms.User])(implicit requestHeader: RequestHeader, flash: Flash)
+
+@import helper._
+
+@main{
+<form action="/register" method="POST">
+    @CSRF.formField
+    Email: <input type="email" name="email" value="@regForm("email").value" /><br>
+    Name: <input type="text" name="name" /><br>
+    Password: <input type="password" name="passwordGroup.password"/><br>
+    <p>@regForm("passwordGroup.password").errors.map(error => error.messages)</p>
+    Confirm Password: <input type="password" name="passwordGroup.confirmpassword"/><br>
+    <p>@regForm("passwordGroup.confirmpassword").errors.map(error => error.messages)</p>
+    <p>@regForm("passwordGroup").errors.map(error => error.messages)</p>
+    Age: <input type="number" name="age" /><br>
+    <input type="submit" value="submit" /><br>
+</form>
+}
